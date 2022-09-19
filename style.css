@@ -46,7 +46,7 @@ main {
     display: block;
 }
 .animation{
-    animation: onload 300ms forwards;
+    animation: onload 200ms forwards;
     display: block;
 }
 
