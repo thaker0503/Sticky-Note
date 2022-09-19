@@ -5,7 +5,7 @@ var i;
 
 
 const main = document.querySelector("main")
-const initialCards = JSON.parse(localStorage.getItem('cards') || "[]");
+const initialCards = JSON.parse(localStorage.getItem('cards'));
 initialCards.forEach(card => {
     createCardHTML(card);
 })
@@ -39,4 +39,3 @@ window.onload = () => {
     animateNext(i)
     
 }
-
