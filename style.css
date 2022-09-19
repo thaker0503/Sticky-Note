@@ -39,6 +39,7 @@ main {
     min-width: 150px;
     min-height: 50px;
     padding: 14px 16px;
+    animation: onload 1s forwards;
 }
 #context-menu{
     position: fixed;
@@ -63,4 +64,15 @@ main {
 }
 #context-menu .item:hover{
     background-color: #343434;
+}
+
+@keyframes onload {
+    0%{
+        left: 50%;
+        top: 50%;
+    }
+    100%{
+        left: left;
+        top: top;
+    }
 }
