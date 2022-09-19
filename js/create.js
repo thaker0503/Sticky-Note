@@ -38,7 +38,7 @@ function addNote(a, b) {
         left,
         top,
         rotate,
-        id: randomId(),
+        id: `note${count}`,
         value: ""
     }
     createCardHTML(currentCard);
