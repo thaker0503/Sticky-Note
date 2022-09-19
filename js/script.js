@@ -38,10 +38,10 @@ main.addEventListener("click", function () {
 window.onload = () => {
     var i = document.querySelector(".note").getAttribute("id").split("note")[1]
     animateNext(parseInt(i))
-    const notes = document.querySelectorAll('.note')
-    for (let i = 0; i < notes.length; i++) {
-        // console.log(notes[i].id)
-        // dragElement(notes[i])
-    }
+    // const notes = document.querySelectorAll('.note')
+    // for (let i = 0; i < notes.length; i++) {
+    //     // console.log(notes[i].id)
+    //     // dragElement(notes[i])
+    // }
     
 }
