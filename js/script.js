@@ -1,10 +1,13 @@
-import { addNote } from "./create.js";
-
-
+import { addNote, createCardHTML, currentCard } from "./create.js";
+import { storeData } from "./store.js";
 
 
 
 const main = document.querySelector("main")
+const initialCards = JSON.parse(localStorage.getItem('cards') || "[]");
+initialCards.forEach(card => {
+    createCardHTML(card);
+})
 
 main.addEventListener("click", function () {
     if (main.firstChild) {
@@ -18,6 +21,10 @@ main.addEventListener("click", function () {
     for (let i = 0; i < main.children.length; i++) {
         main.children[i].addEventListener("click", function (event) {
             event.stopPropagation();
+        })
+        main.children[i].addEventListener("keyup", function (event) {
+            storeData(event, currentCard)
+            
         })
     }
 })

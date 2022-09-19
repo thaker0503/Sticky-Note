@@ -1,10 +1,9 @@
 var count = 0;
-let currentCard = {};
+export let currentCard = {};
 const main = document.querySelector("main")
 
 
-
-function createCardHTML({ id, rotate, top, left, value }) {
+export function createCardHTML({ id, rotate, top, left, value }) {
     var card = document.createElement("textarea")
     card.classList.add("note")
     card.setAttribute('id', id)
