@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Note | Web App</title>
     <link rel="stylesheet" href="style.css">
+    <script src="./js/script.js" type="module" defer></script>
 </head>
 <body>
     <nav>
@@ -13,80 +14,9 @@
             <img src="./img/Frame 25.png" />
         </div>
     </nav>
-    <main>
-        
-        <!-- <textarea class="note" id="note0" onclick="stopProp(event)"></textarea> -->
-    </main>
+    <main></main>
     <script>
-        var count = 0;
-        let cards = []
-        console.log(JSON.parse(localStorage.getItem("cards")))
-        let currentCard ={};
-        const main = document.querySelector("main")
-
-
-        function createCardHTML({id, rotate, top , left, value}) {
-            var card = document.createElement("textarea")
-            card.classList.add("note")
-            card.setAttribute('id', id)
-            card.setAttribute('onclick', 'stopProp(event)')
-            card.setAttribute('onkeyup', 'storeData(event)')
-            card.style.position = "absolute";
-            console.log(rotate)
-            card.style.transform = `rotate(${rotate}deg)`
-            card.style.top = top + 'px'
-            card.style.left = left + 'px'
-            card.value = value;
-            main.appendChild(card)
-        }
-
-        document.addEventListener('readystatechange',()=>{
-            const initialCards = JSON.parse(localStorage.getItem('cards')||"[]");
-            initialCards.forEach(card=>{
-                createCardHTML(card);
-            })
-        })
-
-
-        function addNote(event){
-            const rotate = randomRotate()
-            count++
-            var left = event.clientX;
-            var top = event.clientY;
-             currentCard = {
-                left,
-                top,
-                rotate,
-                id: `note${count}`,
-                value: ""
-            }
-            createCardHTML(currentCard);
-            if(currentCard.value !== ""){
-                cards.push(currentCard);
-            }
-        }
-        function stopProp(event){
-            event.stopPropagation();
-        }
-        function randomRotate(){
-            return Math.floor((Math.random() * (15 - (-15) + 1) + (-15)))
-        }
-        function storeData(event){
-            event.preventDefault()
-            console.log(event.target.value)
-            currentCard.value = event.target.value;
-            const cardIndex = cards.findIndex(c => c.id === currentCard.id);
-            if(cardIndex !== -1) {
-                cards[cardIndex] = currentCard;
-            } else {
-                cards.push(currentCard);
-            }
-
-            localStorage.setItem('cards', JSON.stringify(cards));
-        }
-        main.addEventListener("click",function(){
-            addNote(event)
-        })
+        
 
     </script>
 </body>
