@@ -16,6 +16,7 @@ initialCards.forEach(card => {
 
 
 main.addEventListener("click", function () {
+    
     if (main.firstChild) {
         if (main.lastChild.value == "") {
             main.lastChild.remove()
@@ -24,16 +25,21 @@ main.addEventListener("click", function () {
     var a = event.clientX;
     var b = event.clientY;
     addNote(a, b)
-    for (let i = 0; i < main.children.length; i++) {
-        main.children[i].addEventListener("click", function (event) {
-            event.stopPropagation();
-        })
-        main.children[i].addEventListener("keyup", function (event) {
-            storeData(event, currentCard)
+    if (main.children.length > 0) {
+        for (let i = 0; i < main.children.length; i++) {
+            main.children[i].addEventListener("click", function (event) {
+                console.log("Clicked...")
+                event.stopPropagation();
+            })
+            main.children[i].addEventListener("keyup", function (event) {
+                storeData(event, currentCard)
 
-        })
+            })
+        }
     }
 })
+
+
 
 window.onload = () => {
     var i = document.querySelector(".note").getAttribute("id").split("note")[1]
