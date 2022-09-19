@@ -15,7 +15,9 @@ export function storeData(event, currentCard) {
     if (cardIndex !== -1) {
         cards[cardIndex] = currentCard;
     } else {
-        cards.push(currentCard);
+        if (currentCard.value !== "") {
+            cards.push(currentCard);
+        }
     }
 
     localStorage.setItem('cards', JSON.stringify(cards));
