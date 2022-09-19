@@ -6,11 +6,12 @@ const main = document.querySelector("main")
 export function createCardHTML({ id, rotate, top, left, value }) {
     var card = document.createElement("textarea")
     card.classList.add("note")
+    card.classList.add("show")
+    // card.classList.add("animation")
     card.setAttribute('id', id)
     // card.setAttribute('onclick', `${stopProp(event)}`)
     // card.setAttribute('onkeyup', 'storeData(event)')
     card.style.position = "absolute";
-    console.log(rotate)
     card.style.transform = `rotate(${rotate}deg)`
     card.style.top = top + 'px'
     card.style.left = left + 'px'
@@ -25,7 +26,7 @@ function randomRotate() {
     return Math.floor((Math.random() * (15 - (-15) + 1) + (-15)))
 }
 
-function addNote(a,b) {
+function addNote(a, b) {
     const rotate = randomRotate()
     count++
     var left = a;

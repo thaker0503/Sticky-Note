@@ -1,3 +1,4 @@
+import { animateNext } from "./animation.js";
 import { addNote, createCardHTML, currentCard } from "./create.js";
 import { storeData } from "./store.js";
 
@@ -10,10 +11,11 @@ initialCards.forEach(card => {
 })
 
 main.addEventListener("click", function () {
+    console.log("Clicked")
     if (main.firstChild) {
         if (main.lastChild.value == "") {
-        main.lastChild.remove()
-    }
+            main.lastChild.remove()
+        }
     }
     var a = event.clientX;
     var b = event.clientY;
@@ -24,8 +26,13 @@ main.addEventListener("click", function () {
         })
         main.children[i].addEventListener("keyup", function (event) {
             storeData(event, currentCard)
-            
+
         })
     }
 })
+
+window.onload = () => {
+    animateNext(1)
+    
+}
 

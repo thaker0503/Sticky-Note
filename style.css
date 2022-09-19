@@ -39,7 +39,14 @@ main {
     min-width: 150px;
     min-height: 50px;
     padding: 14px 16px;
-    animation: onload 1s forwards;
+    display: none;
+}
+.note.show{
+    display: block;
+}
+.animation{
+    animation: onload 300ms forwards;
+    display: block;
 }
 #context-menu{
     position: fixed;

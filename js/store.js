@@ -10,7 +10,6 @@ let cards = []
 
 export function storeData(event, currentCard) {
     event.preventDefault()
-    console.log(event.target.value)
     currentCard.value = event.target.value;
     const cardIndex = cards.findIndex(c => c.id === currentCard.id);
     if (cardIndex !== -1) {
