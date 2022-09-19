@@ -48,6 +48,7 @@ main {
     animation: onload 300ms forwards;
     display: block;
 }
+
 #context-menu{
     position: fixed;
     z-index: 10000;
