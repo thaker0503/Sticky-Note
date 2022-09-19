@@ -3,6 +3,7 @@ export let currentCard = {};
 const main = document.querySelector("main")
 
 
+
 export function createCardHTML({ id, rotate, top, left, value }) {
     var card = document.createElement("textarea")
     card.classList.add("note")

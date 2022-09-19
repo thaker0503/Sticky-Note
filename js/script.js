@@ -1,7 +1,7 @@
 import { animateNext } from "./animation.js";
 import { addNote, createCardHTML, currentCard } from "./create.js";
 import { storeData } from "./store.js";
-
+var i;
 
 
 const main = document.querySelector("main")
@@ -9,9 +9,13 @@ const initialCards = JSON.parse(localStorage.getItem('cards') || "[]");
 initialCards.forEach(card => {
     createCardHTML(card);
 })
+if (main.children.length > 0) {
+    i = parseInt(document.getElementsByTagName("textarea")[0].id.split("note")[1]);
+}
+
+
 
 main.addEventListener("click", function () {
-    console.log("Clicked")
     if (main.firstChild) {
         if (main.lastChild.value == "") {
             main.lastChild.remove()
@@ -32,7 +36,7 @@ main.addEventListener("click", function () {
 })
 
 window.onload = () => {
-    animateNext(1)
+    animateNext(i)
     
 }
 
