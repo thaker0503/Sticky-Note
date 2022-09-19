@@ -1,18 +1,17 @@
-import { animateNext } from "./animation.js";
+// import { animateNext } from "./animation.js";
 import { addNote, createCardHTML, currentCard } from "./create.js";
+import { dragElement } from "./draggable.js";
 import { storeData } from "./store.js";
 
 var i;
 
 
 const main = document.querySelector("main")
-const initialCards = JSON.parse(localStorage.getItem('cards'));
+const initialCards = JSON.parse(localStorage.getItem('cards')) || [];
 initialCards.forEach(card => {
     createCardHTML(card);
 })
-if (main.children.length > 0) {
-    i = parseInt(document.getElementsByTagName("textarea")[0].id.split("note")[1]);
-}
+
 
 
 
@@ -37,6 +36,11 @@ main.addEventListener("click", function () {
 })
 
 window.onload = () => {
-    animateNext(i)
+    // animateNext(i)
+    const notes = document.querySelectorAll('.note')
+    for (let i = 0; i < notes.length; i++) {
+        dragElement(notes[i])
+        
+    }
     
 }

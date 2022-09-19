@@ -6,7 +6,7 @@
     // })
 // })
 
-let cards = [];
+let cards = JSON.parse(localStorage.getItem('cards'))  || []
 
 export function storeData(event, currentCard) {
     event.preventDefault()
