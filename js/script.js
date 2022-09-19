@@ -1,6 +1,6 @@
 import { animateNext } from "./animation.js";
 import { addNote, createCardHTML, currentCard } from "./create.js";
-import { dragElement } from "./draggable.js";
+// import { dragElement } from "./draggable.js";
 import { storeData } from "./store.js";
 
 
