@@ -1,8 +1,8 @@
-var count = 0;
+var count = JSON.parse(localStorage.getItem("cards")).length;
 export let currentCard = {};
 const main = document.querySelector("main")
 
-
+console.log()
 
 export function createCardHTML({ id, rotate, top, left, value }) {
     var card = document.createElement("textarea")
