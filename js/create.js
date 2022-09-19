@@ -21,9 +21,9 @@ export function createCardHTML({ id, rotate, top, left, value }) {
 }
 
 
-function randomId() {
-    return Math.floor(Math.random() * 1000)
-}
+// function randomId() {
+//     return Math.floor(Math.random() * 1000)
+// }
 
 function randomRotate() {
     return Math.floor((Math.random() * (15 - (-15) + 1) + (-15)))

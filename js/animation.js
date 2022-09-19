@@ -1,5 +1,5 @@
 export function animateNext(i) {
-    console.log(i)
+    // console.log(i)
     let stop = document.querySelectorAll('.note').length;
     let notes = document.querySelectorAll('.note');
     let animated = document.querySelector(`#note${i}`);
