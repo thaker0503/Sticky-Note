@@ -12,10 +12,12 @@ initialCards.forEach(card => {
     createCardHTML(card);
 })
 
+console.log()
 
 
 
-main.addEventListener("click", function () {
+
+main.addEventListener("click", function (event) {
     
     if (main.firstChild) {
         if (main.lastChild.value == "") {
@@ -32,11 +34,18 @@ main.addEventListener("click", function () {
                 event.stopPropagation();
             })
             main.children[i].addEventListener("keyup", function (event) {
+                // initialCards.forEach(item => {
+                //     if (item.id == currentCard.id) {
+                //         console.log("Item Found...")
+                //     }
+                // })
                 storeData(event, currentCard)
 
             })
         }
     }
+        
+    
 })
 
 
