@@ -45,6 +45,7 @@ main {
     height: 50px;
     background-color: #1b1a1a;
     border-radius: 0px 15px;
+    cursor: move;
 }
 .header::after{
     content: "";

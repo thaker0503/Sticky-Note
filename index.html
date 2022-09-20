@@ -5,16 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Note | Web App</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" href="newstyle.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="newstyle.css"> -->
     <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
         crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
             integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous"></script>
-    <!-- <script src="./js/script.js" type="module" defer></script> -->
+    <script src="./js/script.js" type="module" defer></script>
 </head>
 <body>
+    <div id="context-menu">
+        <div class="item remove">Delete</div>
+    </div>
     <nav>
         <div class="nav-logo">
             <img src="./img/Frame 25.png" />
@@ -23,7 +26,7 @@
     </nav>
     <main id="board">
     </main>
-    <script>
+    <!-- <script>
         (function ($) {
                 $.fn.autogrow = function (options) {
                     return this.filter('textarea').each(function () {
@@ -87,14 +90,14 @@
 
             var noteZindex = 1;
 
-            function deleteNote() {
-                $(this).parent('.note').hide("puff", { percent: 133 }, 250);
+            function deleteNote(id) {
+                $(`#${id}`).parent('.note').hide("puff", { percent: 133 }, 250);
             };
 
             function newNote() {
                 $(noteTemp).hide().appendTo("#board").show("fade", 300).draggable().on('dragstart');
                 
-                $('.remove').click(deleteNote);
+                $('.remove').click(deleteNote());
                 $('textarea').autogrow();
 
                 $('.note')
@@ -104,10 +107,27 @@
 
 
             $(document).ready(function () {
+                $("body").contextmenu(event => {
+                    event.preventDefault();
 
+                    const { clientX : mouseX, clientY : mouseY} = event;
+
+                    $("#context-menu").css({
+                        top: `${mouseY}px`, 
+                        left: `${mouseX}px` 
+                    })
+
+                    $("#context-menu").addClass("visible");                    
+                })
+                $("#context-menu").removeClass("visible");    
                 $("#board").height($(document).height());
                 $("#board").click(function(){
-                    newNote();
+                    
+                    newNote();                   
+                })
+                $(".note").click(function(event){
+                    console.log("Note clicked...")
+                    event.stopPropagation();
                 })
                 $("#add_new").click(newNote);
 
@@ -117,6 +137,6 @@
                 return false;
             });
 
-    </script>
+    </script> -->
 </body>
 </html>

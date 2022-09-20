@@ -1,6 +1,6 @@
 import { animateNext } from "./animation.js";
 import { addNote, createCardHTML, currentCard } from "./create.js";
-// import { dragElement } from "./draggable.js";
+import { dragElement } from "./draggable.js";
 import { storeData } from "./store.js";
 
 
@@ -53,6 +53,7 @@ main.addEventListener("click", function (event) {
 window.onload = () => {
     var i = document.querySelector(".note").getAttribute("id").split("note")[1]
     animateNext(parseInt(i))
+    // dragElement()
     // const notes = document.querySelectorAll('.note')
     // for (let i = 0; i < notes.length; i++) {
     //     // console.log(notes[i].id)

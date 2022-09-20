@@ -1,4 +1,4 @@
-var count = [] || JSON.parse(localStorage.getItem("cards")).length ;
+var count =  JSON.parse(localStorage.getItem("cards")).length ;
 export let currentCard = {};
 const main = document.querySelector("main")
 
@@ -18,14 +18,14 @@ export function createCardHTML({ id, rotate, top, left, value }) {
     // card.setAttribute('onclick', `${stopProp(event)}`)
     // card.setAttribute('onkeyup', 'storeData(event)')
     card.style.position = "absolute";
-    divWrapper.style.transform = `rotate(${rotate}deg)`
-    // card.style.top = top + 'px'
-    // card.style.left = left + 'px'
-    divWrapper.style.top = top + 'px'
-    divWrapper.style.left = left + 'px'
+    card.style.transform = `rotate(${rotate}deg)`
+    card.style.top = top + 'px'
+    card.style.left = left + 'px'
+    // divWrapper.style.top = top + 'px'
+    // divWrapper.style.left = left + 'px'
     card.value = value;
-    divWrapper.appendChild(card)
-    main.appendChild(divWrapper)
+    // divWrapper.appendChild(card)
+    main.appendChild(card)
 }
 
 

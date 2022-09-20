@@ -114,6 +114,7 @@ a:focus {
 /* ========================================================================== Author's custom styles ========================================================================== */
 #board {
     padding: 30px 30px;
+    width: 100%;
     /* margin-top: 40px; */
     overflow-y: visible;
 }
@@ -125,7 +126,7 @@ a:focus {
     padding: 1em;
     width: 300px;
     min-height: 150px;
-    margin: 0 30px 30px 0;
+    margin: 0 15px 15px 0;
     background: linear-gradient(top, rgba(0, 0, 0, .05), rgba(0, 0, 0, .25));
     background-color: #fffd75;
     box-shadow: 5px 5px 10px -2px rgba(33, 33, 33, .3);
@@ -237,8 +238,31 @@ a:focus {
     z-index: 100;
 }
 
-.author {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+
+#context-menu {
+    position: fixed;
+    z-index: 10000;
+    width: 150px;
+    background-color: #1b1a1a;
+    border-radius: 5px;
+    display: none;
+}
+
+#context-menu.visible {
+    display: block;
+}
+
+#context-menu .item {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    padding: 8px 10px;
+    font-size: 15px;
+    color: #eee;
+    cursor: pointer;
+    border-radius: inherit;
+}
+
+#context-menu .item:hover {
+    background-color: #343434;
 }
