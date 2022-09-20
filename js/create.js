@@ -4,17 +4,17 @@ if (localStorage.getItem("cards") == null) {
     localStorage.setItem("cards",JSON.stringify(cards))
 }
 console.log(JSON.parse(localStorage.getItem("cards")))
-var count = JSON.parse(localStorage.getItem("cards")).length;
+
 export let currentCard = {};
 const main = document.querySelector("main")
 
 
 export function createCardHTML({ id, rotate, top, left, value }) {
-    var divWrapper = document.createElement("div")
-    divWrapper.classList.add("note-wrapper")
-    var header = document.createElement("div")
-    header.classList.add("header")
-    divWrapper.appendChild(header)
+    // var divWrapper = document.createElement("div")
+    // divWrapper.classList.add("note-wrapper")
+    // var header = document.createElement("div")
+    // header.classList.add("header")
+    // divWrapper.appendChild(header)
     var card = document.createElement("textarea")
     card.classList.add("note")
     card.classList.add("show")
@@ -44,14 +44,12 @@ function randomRotate() {
 
 function addNote(a, b) {
     const rotate = randomRotate()
-    count++
     var left = a;
     var top = b;
     currentCard = {
         left,
         top,
         rotate,
-        id: `note${count}`,
         value: ""
     }
     createCardHTML(currentCard);

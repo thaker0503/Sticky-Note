@@ -54,6 +54,7 @@ main {
     right: 0;
     box-shadow: 0 2px 12px rgba(0, 0, 0, .5)
 }
+
 .note {
     width: 150px;
     height: 150px;
@@ -62,6 +63,7 @@ main {
     min-height: 50px;
     margin-top: 20px;
     padding: 14px 16px;
+    z-index: 1000;
     display: none;
 }
 .note.show{
