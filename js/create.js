@@ -1,6 +1,6 @@
-console.log()
+
 let cards = []
-if (localStorage.getItem("cards") == "") {
+if (localStorage.getItem("cards") == null) {
     localStorage.setItem("cards",JSON.stringify(cards))
 }
 console.log(JSON.parse(localStorage.getItem("cards")))
@@ -8,7 +8,6 @@ var count = JSON.parse(localStorage.getItem("cards")).length;
 export let currentCard = {};
 const main = document.querySelector("main")
 
-console.log()
 
 export function createCardHTML({ id, rotate, top, left, value }) {
     var divWrapper = document.createElement("div")

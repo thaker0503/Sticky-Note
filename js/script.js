@@ -3,8 +3,6 @@ import { addNote, createCardHTML, currentCard } from "./create.js";
 // import { dragElement } from "./draggable.js";
 import { storeData } from "./store.js";
 
-
-
 const main = document.querySelector("main")
 const initialCards = JSON.parse(localStorage.getItem('cards')) || [];
 initialCards.forEach(card => {
