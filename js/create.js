@@ -1,4 +1,10 @@
-var count =  JSON.parse(localStorage.getItem("cards")).length;
+console.log()
+let cards = []
+if (localStorage.getItem("cards") == "") {
+    localStorage.setItem("cards",JSON.stringify(cards))
+}
+console.log(JSON.parse(localStorage.getItem("cards")))
+var count = JSON.parse(localStorage.getItem("cards")).length;
 export let currentCard = {};
 const main = document.querySelector("main")
 

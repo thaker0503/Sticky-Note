@@ -5,14 +5,11 @@ import { storeData } from "./store.js";
 
 
 
-
 const main = document.querySelector("main")
 const initialCards = JSON.parse(localStorage.getItem('cards')) || [];
 initialCards.forEach(card => {
     createCardHTML(card);
 })
-
-console.log()
 
 
 
