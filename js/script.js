@@ -9,10 +9,25 @@ initialCards.forEach(card => {
     createCardHTML(card);
 })
 var count = JSON.parse(localStorage.getItem("cards")).length;
+const contextMenu = document.getElementById("context-menu");
+const del = document.querySelector(".remove")
 // var count = 0;
 
+function delCard(id) {
+    var cards = JSON.parse(localStorage.getItem("cards"));
+    for (let i = 0; i < cards.length; i++) {
+        const index = cards.findIndex(item => item.id == id)
+        if (index > -1) {
+            console.log("Removing Item")
+            cards.splice(index,1)
+        }
+        
+    }
+    localStorage.setItem("cards", JSON.stringify(cards))
+}
 
 main.addEventListener("click", function (event) {
+    contextMenu.classList.remove("visible");
     console.log("Main Clicked ==>")
     count++;
     if (main.firstChild) {
@@ -41,6 +56,18 @@ main.addEventListener("click", function (event) {
                 storeData(event, currentCard, count)
 
             })
+            main.children[i].addEventListener("contextmenu", function (event) {
+                event.preventDefault();
+                console.log("Right Clicked ==>")
+                // alert(this.id);
+                const { clientX: mouseX, clientY: mouseY } = event;
+
+                contextMenu.style.top = `${mouseY}px`;
+                contextMenu.style.left = `${mouseX}px`;
+                contextMenu.classList.add("visible");
+                del.setAttribute("onclick",`${delCard(this.id)}`)
+            })
+            
         }
     }
 })
@@ -69,8 +96,22 @@ window.onload = () => {
                 storeData(event, currentCard, count)
 
             })
+            main.children[i].addEventListener("contextmenu", function (event) {
+                event.preventDefault();
+                console.log("Right Clicked ==>")
+                // alert(this.id);
+                const { clientX: mouseX, clientY: mouseY } = event;
+
+                contextMenu.style.top = `${mouseY}px`;
+                contextMenu.style.left = `${mouseX}px`;
+                contextMenu.classList.add("visible");
+                del.setAttribute("onclick", `${delCard(this.id)}`)
+                // contextMenu.firstChild().setAttribute()
+            })
         }
+        contextMenu.classList.remove("visible")
     }
+    
     // dragElement()
     // const notes = document.querySelectorAll('.note')
     // for (let i = 0; i < notes.length; i++) {
@@ -79,3 +120,4 @@ window.onload = () => {
     // }
     
 }
+
